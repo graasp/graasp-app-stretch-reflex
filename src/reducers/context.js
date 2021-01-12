@@ -27,8 +27,7 @@ export default (state = INITIAL_STATE, { type, payload }) => {
       };
 
     case GET_CONTEXT_FAILED:
-      // show error to user
-      alert(payload);
+      // todo: show error to user
       return state;
 
     default:

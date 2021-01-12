@@ -14,8 +14,7 @@ export default (state = INITIAL_STATE, { payload, type }) => {
       };
 
     case GET_USERS_FAILED:
-      // show error to user
-      alert(payload);
+      // todo: show error to user
       return state;
 
     default:

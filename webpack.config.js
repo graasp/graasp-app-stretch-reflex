@@ -4,6 +4,7 @@ const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const InterpolateHtmlPlugin = require('interpolate-html-plugin');
 const ScriptExtHtmlWebpackPlugin = require('script-ext-html-webpack-plugin');
+const CopyPlugin = require('copy-webpack-plugin');
 
 // from: https://github.com/facebook/create-react-app/blob/master/packages/react-scripts/config/env.js
 // grab react app environment variables
@@ -53,5 +54,15 @@ module.exports = {
       preload: /\.js$/,
     }),
     new InterpolateHtmlPlugin(REACT_ENV),
+    new CopyPlugin([
+      {
+        from: 'public/manifest.json',
+        to: 'manifest.json',
+      },
+      {
+        from: 'public/favicon.ico',
+        to: 'favicon.ico',
+      },
+    ]),
   ],
 };
